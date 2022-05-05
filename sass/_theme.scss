@@ -2,13 +2,13 @@ $foreground: #222222;
 $background: #eeeeee;
 $secondary: gray;
 $tertiary: #dddddd;
-$accent: #5353ff;
+$accent: $foreground;
 
 $foreground-dark: #eeeeee;
-$background-dark: #161616;
+$background-dark: #1a1a1a;
 $secondary-dark: #999999;
 $tertiary-dark: #444444;
-$accent-dark: $accent;
+$accent-dark: $foreground;
 
 @mixin light-theme {
     color: $foreground;
@@ -20,6 +20,8 @@ $accent-dark: $accent;
 
     a, a:link, a:visited {
         color: $accent;
+        background-color: lightgray;
+        text-decoration-style: wavy;
     }
 
     a:hover {
@@ -53,6 +55,8 @@ $accent-dark: $accent;
 
     a, a:link, a:visited {
         color: $accent-dark;
+        background-color: lightgray;
+        text-decoration-style: wavy;
     }
 
     a:hover {

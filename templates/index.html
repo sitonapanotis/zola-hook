@@ -26,22 +26,32 @@
     </header>
     {% endblock header %}
     {% block content %}
-    {% set blog = get_section(path="blog/_index.md") %}
-    {% if section.content or blog.pages %}
+    {% set projects = get_section(path="projects/_index.md") %}
+    {% if section.content or projects.pages %}
     <main>
         {% if section.content %}
-        <div {% if blog.pages %}class="space"{% endif %}>
+        <div {% if projects.pages %}class="space"{% endif %}>
             {{ section.content | safe }}
         </div>
         {% endif %}
-        {% if blog.pages %}
-        <h2>Recent posts</h2>
+        {% if projects.pages %}
+        <h2>Active Projects</h2>
         <ul>
-            {% for post in blog.pages | slice(end=20) %}
+            {% for post in projects.pages %}
+            {% if post.extra.state == "ongoing" %}
             <li><a href="{{ post.permalink }}">{{ post.title }}</a></li>
+            {% endif %}
             {% endfor %}
         </ul>
-        <p><a href="{{ blog.permalink }}">Archive</a></p>
+        <h2>Past Projects</h2>
+        <ul>
+            {% for post in projects.pages %}
+            {% if post.extra.state == "complete" %}
+            <li><a href="{{ post.permalink }}">{{ post.title }}</a></li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+        <!-- <p><a href="{{ projects.permalink }}">Archive</a></p> -->
         {% endif %}
     </main>
     {% endif %}
