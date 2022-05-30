@@ -12,7 +12,6 @@ body {
 
     line-height: 1.3em;
     padding: 1em 15%;
-    // max-width: 48rem;
     margin-left: auto;
     margin-right: auto;
 }
@@ -90,16 +89,11 @@ h6:before {
     height: 100%;
 }
 
-//k this is not working
 img, iframe, video, canvas { 
   // display: block;
   width: 100%;
   border-radius: .3em;
 }
-
-// img {
-//     max-width: 100%;
-// }
 
 blockquote {
     margin-left: 0;
